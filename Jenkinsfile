@@ -24,7 +24,7 @@ pipeline{
         stage('Build'){
             steps{
                 sh' echo Building Docker image'
-                sh 'docker build -t aditya115/flask-app:${IMAGE_TAG} .'
+                sh 'docker build -t aditya115/todo-app:${IMAGE_TAG} .'
         }
         }
         stage('Testing'){
@@ -38,7 +38,7 @@ pipeline{
                     withDockerRegistry(credentialsId: 'Aditya-dockerhub') {
 
                     sh 'echo Login to dockerhub.... '
-                    sh ' docker push aditya115/flask-app:${IMAGE_TAG} '
+                    sh ' docker push aditya115/todo-app:${IMAGE_TAG} '
                     }
             }
         }
@@ -48,7 +48,7 @@ pipeline{
             steps{
                 sh 'echo Deploying...'
                 sh 'docker-compose up -d --build --remove-orphans' 
-                '--scale flask-app=5 '
+                // '--scale flask-app=5 '
             }
         }   
     
