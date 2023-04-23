@@ -5,8 +5,6 @@ services:
     command: gunicorn --workers=3 -b 0.0.0.0:8000 app:app
     ports:
       - "5000"
-    volumes:
-      - /var/lib/jenkins/workspace/jenkins-docker-pipeline:/app/todo.db
     
 
   nginx:
