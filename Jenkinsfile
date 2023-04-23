@@ -32,21 +32,22 @@ pipeline{
                 sh 'echo Testing...'
             }
         }
-        stage('Push to Dockerhub'){
-            steps{
-                script{
-                    withDockerRegistry(credentialsId: 'Aditya-dockerhub') {
+        // stage('Push to Dockerhub'){
+        //     steps{
+        //         script{
+        //             withDockerRegistry(credentialsId: 'Aditya-dockerhub') {
 
-                    sh 'echo Login to dockerhub.... '
-                    sh ' docker push aditya115/todo-app:${IMAGE_TAG} '
-                    }
-            }
-        }
+        //             sh 'echo Login to dockerhub.... '
+        //             sh ' docker push aditya115/todo-app:${IMAGE_TAG} '
+        //             }
+        //     }
+        // }
             
         }
         stage('Deploy'){
             steps{
                 sh 'echo Deploying...'
+                sh'pwd'
                 sh 'docker-compose up -d --build --remove-orphans' 
                 // '--scale flask-app=5 '
             }
