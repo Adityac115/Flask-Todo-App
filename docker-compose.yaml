@@ -4,7 +4,7 @@ services:
     build: .
     command: gunicorn --workers=3 -b 0.0.0.0:8000 app:app
     volumes:
-      - TODO_VOLUME:/app/todo.db
+      - /home/aditya/python/newproj/todo/Flask:/app/todo.db
     ports:
       - "8000"
     
@@ -17,4 +17,8 @@ services:
       - todo
     ports:
       - "80:80"
+
+
+# volumes: 
+#   - TODO_VOLUME
 
