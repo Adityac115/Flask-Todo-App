@@ -7,7 +7,6 @@ services:
       - /var/lib/jenkins/workspace/jenkins-docker-pipeline/todo.db:/app/todo.db
     ports:
       - "8000"
-    scale: 3
     
 
   nginx:
