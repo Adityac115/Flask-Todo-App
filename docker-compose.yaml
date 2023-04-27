@@ -7,6 +7,8 @@ services:
       - "8000"
     volumes:
       - TODO_VOLUME:/app
+      - static:/app/static
+      - templates:/app/templates
     scale: 5
     
 
