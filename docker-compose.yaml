@@ -3,11 +3,8 @@ services:
   todo: 
     build: .
     command: gunicorn --workers=3 -b 0.0.0.0:8000 app:app
-    volumes:
-      - TODO_VOLUME:/app
     ports:
       - "8000"
-    scale: 5
     
 
   nginx:
@@ -19,7 +16,4 @@ services:
     ports:
       - "80:80"
 
-
-volumes: 
-  TODO_VOLUME:
 
